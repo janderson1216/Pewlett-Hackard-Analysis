@@ -50,4 +50,9 @@ WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 AND (de.to_date = '9999-01-01')
 ORDER BY e.emp_no;
 
-
+--Count number of retirees per title
+SELECT Count(ut.title), ut.title
+into retiring_titles
+from unique_titles as ut
+group by ut.title
+order by count(ut.title) desc
